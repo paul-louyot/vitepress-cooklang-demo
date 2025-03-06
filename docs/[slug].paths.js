@@ -1,0 +1,21 @@
+import { pathsLoader } from "vitepress-plugin-example";
+
+const transformPath = (path) => {
+  return path.replace(/^docs\//, "").replace(/\.cook$/, "");
+};
+
+export default {
+  async paths() {
+    const data = await pathsLoader("**/*.cook", transformPath);
+    return data.map(({ filePath, source, metadata, recipe }) => {
+      return {
+        params: {
+          slug: filePath,
+          source,
+          metadata,
+          recipe,
+        },
+      };
+    });
+  },
+};
