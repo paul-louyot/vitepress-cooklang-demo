@@ -1,4 +1,4 @@
-import { pathsLoader } from "vitepress-plugin-example";
+import { pathsLoader } from "vitepress-plugin-cooklang";
 
 const transformPath = (path) => {
   return path.replace(/^docs\//, "").replace(/\.cook$/, "");

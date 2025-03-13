@@ -1,4 +1,4 @@
-import { cookFilesDataLoader } from "vitepress-plugin-example";
+import { dataLoader } from "vitepress-plugin-cooklang";
 
 const transformPath = (path) => {
   return path.replace(/^docs\//, "").replace(/\.cook$/, "");
@@ -7,6 +7,6 @@ const transformPath = (path) => {
 export default {
   watch: ["./**/*.cook"],
   load(watchedFiles) {
-    return cookFilesDataLoader(watchedFiles, transformPath);
+    return dataLoader(watchedFiles, transformPath);
   },
 };
